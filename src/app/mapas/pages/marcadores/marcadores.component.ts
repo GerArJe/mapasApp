@@ -17,6 +17,17 @@ import * as mapboxgl from 'mapbox-gl';
         width: 100%;
         height: 100%;
       }
+
+      .list-group {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 99;
+      }
+
+      li {
+        cursor: pointer;
+      }
     `,
   ],
 })
@@ -35,8 +46,24 @@ export class MarcadoresComponent implements AfterViewInit {
       zoom: this.zoomLevel,
     });
 
-    const marker = new mapboxgl.Marker()
+    // const markerHtml: HTMLElement = document.createElement('div');
+    // markerHtml.innerHTML = 'Hola Mundo';
+
+    // new mapboxgl.Marker().setLngLat(this.center).addTo(this.mapa);
+  }
+
+  agregarMarcador() {
+    const color = '#xxxxxx'.replace(/x/g, (y) =>
+      ((Math.random() * 16) | 0).toString(16)
+    );
+
+    const nuevoMarcador = new mapboxgl.Marker({
+      draggable: true,
+      color,
+    })
       .setLngLat(this.center)
       .addTo(this.mapa);
   }
+
+  irMarcador() {}
 }
