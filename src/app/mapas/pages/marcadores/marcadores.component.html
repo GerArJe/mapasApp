@@ -9,7 +9,8 @@
     [ngStyle]="{
       'background-color': marcador.color
     }"
-    (click)="irMarcador(marcador.marker)"
+    (click)="irMarcador(marcador.marker!)"
+    (dblclick)="borrarMarcador(i)"
   >
     Marker {{ i + 1 }}
   </li>
